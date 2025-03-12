@@ -4,3 +4,4 @@
 # [Lab-03](https://colab.research.google.com/drive/1vn1wQQ5hqiE-rpg__7sr1Csr_wGOXTfv#scrollTo=Hjvl-HM0OMGS)-Exploratory Data Analysis (EDA)
 # [Lab-04]()-
 # [Lab-05](https://colab.research.google.com/drive/1kYXz4Gs9uaICumX6vLU2BNMwL9F82oBr#scrollTo=qG_VZIrRVBEr)
+# [Lab-08](https://colab.research.google.com/drive/12eLDD-vlINsS2IXAGxLoNQy-Gl5ALHiY#scrollTo=lRLS59pOs6v7)
