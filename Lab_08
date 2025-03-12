@@ -1,0 +1,318 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPxxqnxuIVNr1gxiLCHyUtl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Vyshnavijulapelly/DataMining/blob/main/Lab_08\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "id": "DJWWhXU2ebOZ"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "from sklearn.preprocessing import LabelEncoder, OneHotEncoder"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Example data\n",
+        "data={'Category':['A','B','C','A','B']}\n",
+        "df=pd.DataFrame(data)\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "L3hMENNQiNHR",
+        "outputId": "781da19a-b0be-4f3a-9289-120a288a026b"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "  Category\n",
+            "0        A\n",
+            "1        B\n",
+            "2        C\n",
+            "3        A\n",
+            "4        B\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Label_encoder=LabelEncoder()\n",
+        "df['Label_Encoded']=Label_encoder.fit_transform(df['Category'])\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GD_DwzB6ivAN",
+        "outputId": "e5c2ed94-d8cc-4326-be19-de87984eebac"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "  Category  Label_Encoded\n",
+            "0        A              0\n",
+            "1        B              1\n",
+            "2        C              2\n",
+            "3        A              0\n",
+            "4        B              1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "one_hot_encoded=pd.get_dummies(df['Category'],prefix='Category')\n",
+        "df=pd.concat([df,one_hot_encoded],axis=1)\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "j1B9OBzNju09",
+        "outputId": "dc76d5fb-4b74-4f65-c31a-c129e159866d"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "  Category  Label_Encoded  Category_A  Category_B  Category_C\n",
+            "0        A              0        True       False       False\n",
+            "1        B              1       False        True       False\n",
+            "2        C              2       False       False        True\n",
+            "3        A              0        True       False       False\n",
+            "4        B              1       False        True       False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from datetime import datetime"
+      ],
+      "metadata": {
+        "id": "wWkbyC59oHKV"
+      },
+      "execution_count": 11,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Example data\n",
+        "data={'Name':['Alice','Bob'],'Date_of_birth':['1990-05-14','1985-08-23']}\n",
+        "df=pd.DataFrame(data)\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "U3kwwUs6oV01",
+        "outputId": "05d56b75-7f55-4905-b3f4-961cc42b5bb1"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "    Name Date_of_birth\n",
+            "0  Alice    1990-05-14\n",
+            "1    Bob    1985-08-23\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Convert date of birth to datetime\n",
+        "df['Date_of_birth']=pd.to_datetime(df['Date_of_birth'])\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OlTmWlWZpIVy",
+        "outputId": "771d7c93-6c1d-4edd-c2bd-774a3067e261"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "    Name Date_of_birth\n",
+            "0  Alice    1990-05-14\n",
+            "1    Bob    1985-08-23\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#calculate Age\n",
+        "current_date=datetime.now()\n",
+        "df['Age']=current_date.year-df['Date_of_birth'].dt.year\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "st756fYVpjkJ",
+        "outputId": "00b06a1a-96cc-470e-d0f2-75b8d560a93e"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "    Name Date_of_birth  Age\n",
+            "0  Alice    1990-05-14   35\n",
+            "1    Bob    1985-08-23   40\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Example data\n",
+        "data={'Category':['A','A','B','B','C'],'Value':[10,20,30,40,50]}\n",
+        "df=pd.DataFrame(data)\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2B-W_hmMqIWN",
+        "outputId": "6f853249-9ad1-48c1-9030-9cb2d82e85f2"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "  Category  Value\n",
+            "0        A     10\n",
+            "1        A     20\n",
+            "2        B     30\n",
+            "3        B     40\n",
+            "4        C     50\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Group by and aggregate\n",
+        "grouped=df.groupby('Category').agg({'Value':['sum','mean']})\n",
+        "print(grouped)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UB0Vgm2QrVHg",
+        "outputId": "0e62ec1a-4fb6-4293-f21f-5129132af420"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "         Value      \n",
+            "           sum  mean\n",
+            "Category            \n",
+            "A           30  15.0\n",
+            "B           70  35.0\n",
+            "C           50  50.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#print table\n",
+        "pivot_table=pd.pivot_table(df,values='Value',index='Category',aggfunc=['sum','mean'])\n",
+        "print(pivot_table)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lRLS59pOs6v7",
+        "outputId": "ba609324-75fc-47e9-d50c-394c6408b83f"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "           sum  mean\n",
+            "         Value Value\n",
+            "Category            \n",
+            "A           30  15.0\n",
+            "B           70  35.0\n",
+            "C           50  50.0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
