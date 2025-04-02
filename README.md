@@ -4,6 +4,8 @@
 # [Lab-03](https://colab.research.google.com/drive/1vn1wQQ5hqiE-rpg__7sr1Csr_wGOXTfv#scrollTo=Hjvl-HM0OMGS)-Exploratory Data Analysis (EDA)
 # [Lab-04]()-
 # [Lab-05](https://colab.research.google.com/drive/1kYXz4Gs9uaICumX6vLU2BNMwL9F82oBr#scrollTo=qG_VZIrRVBEr)
+# [Lab-06](https://colab.research.google.com/drive/1YOkdVpol99eDZ0OJBqef7MZWSV7uWCy5)
+# [Lab-07](https://colab.research.google.com/drive/1ENXMc_Mkci_nhOvn75widwf5oYOSVPGZ)
 # [Lab-08](https://colab.research.google.com/drive/12eLDD-vlINsS2IXAGxLoNQy-Gl5ALHiY#scrollTo=lRLS59pOs6v7)
 # [Lab-09](https://colab.research.google.com/drive/1vcxGu7GYTTJziqwhuTOmLc5_Qbtqi_6B)
 # [Lab-10](https://colab.research.google.com/drive/1qM5EYq32fpPy7Y8nmJ8z0qunOS6WRoRb#scrollTo=TNW7c4tDUmzY)
